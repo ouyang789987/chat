@@ -18,6 +18,7 @@ However, it already incorporates sanitization of user input that is often neglec
   
 # Run
     npm .
+    Open browser at http://localhost:3000
     
 # Chat commands
     /set name NAME    - sets the user name
