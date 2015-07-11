@@ -1,0 +1,94 @@
+* {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+  padding-top: 42px;
+  padding-bottom: 52px;
+  background-color: #eee;
+}
+.messages {
+  list-style-type: none; margin: 0; padding: 0;
+}
+.messages li {
+  padding: 5px 10px; position: relative;
+}
+.messages li:nth-child(odd) {
+  background: #eee;
+}
+.messages li:nth-child(even) {
+  background: #ddd;
+}
+header {
+  top: 0;
+  position: fixed;
+  z-index: 1030;
+  right: 0;
+  left: 0;
+  background-color: #eee;
+}
+footer {
+  bottom: 0;
+  position: fixed;
+  z-index: 1030;
+  right: 0;
+  left: 0;
+  background-color: #eee;
+  height: 52px;
+  padding: 9px;
+}
+.nav-tabs > li .close {
+    margin: -1px 0 0 5px;
+    font-size: 18px;
+}
+.fill {
+  overflow-y: auto;
+  /* Firefox */
+  max-height: -moz-calc(100vh - 94px);
+  /* WebKit */
+  max-height: -webkit-calc(100vh - 94px);
+  /* Opera */
+  max-height: -o-calc(100vh - 94px);
+  /* Standard */
+  max-height: calc(100vh - 94px);
+}
+
+.emoji {
+  cursor: pointer;
+}
+
+.openPrivateConversation {
+  cursor: pointer;
+}
+
+.timestamp {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 2px;
+  margin-right: 5px;
+  font-size: 10px;
+}
+
+.username {
+  font-weight: 700;
+}
+
+.userlist {
+  list-style-type: none; margin: 0; padding: 0;
+}
+
+.userlist li {
+  border-bottom:1px solid #aaa;
+  padding: 5px 10px; position: relative;
+  font-weight: 700;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  background-color: #ddd;
+  border: 1px solid #aaa;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #aaa;
+}
