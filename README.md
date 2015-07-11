@@ -11,7 +11,7 @@ multi room chat based on socket.io 1.3.x
 # Notes
 This chat is a side project to experiment with socket.io. Therefore, it is neither feature complete nor perfect. Especially the frontend code and styling is a bit messy at the moment as I have not decided what to do with it yet.
 
-However, it already incorporates sanitization of user input that is othen neglected in socket.io chat implementations and examples.
+However, it already incorporates sanitization of user input that is often neglected in socket.io chat implementations and examples.
 
 # Installation
     npm install
