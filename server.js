@@ -109,6 +109,20 @@ io.on('connection', function(socket){
     target.emit('whisper from', socket.name, Date.now(), cleanMessage);
     socket.emit('whisper to', target.name, Date.now(), cleanMessage);
   });
+
+  socket.on('typing', function (room) {
+    room = getRoomByName(room);
+    if(room !== null && ~room.sockets.indexOf(socket)) {
+      io.to(room.name_lc).emit('typing', room.name_lc, socket.name);
+    }
+  });
+
+  socket.on('stop typing', function (room) {
+    room = getRoomByName(room);
+    if(room !== null && ~room.sockets.indexOf(socket)) {
+      io.to(room.name_lc).emit('stop typing', room.name_lc, socket.name);
+    }
+  });
 });
 
 http.listen(3000, function(){
@@ -117,4 +131,8 @@ http.listen(3000, function(){
 
 function getSocketByName(name) {
   return sockets[name.toLowerCase()] || null;
+}
+
+function getRoomByName(name) {
+  return rooms[name.toLowerCase()] || null;
 }

@@ -92,3 +92,7 @@ footer {
 .nav-tabs {
   border-bottom: 1px solid #aaa;
 }
+
+.hide {
+  visibility: hidden;
+}
