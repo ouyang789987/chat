@@ -165,31 +165,7 @@ $(function() {
     }
   }
 
-  // see -> http://stackoverflow.com/a/10615607/2199226
-  function fixedFromCharCode (codePt) {
-      if (codePt > 0xFFFF) {
-          codePt -= 0x10000;
-          return String.fromCharCode(0xD800 + (codePt >> 10), 0xDC00 + (codePt & 0x3FF));
-      }
-      else {
-          return String.fromCharCode(codePt);
-      }
-  }
-
-  function getEmoji() {
-    var emoji = ['0x1f600','0x1f601','0x1f602','0x1f603','0x1f604','0x1f605','0x1f606','0x1f607','0x1f609','0x1f60a','0x1f60b','0x1f60c','0x1f60d','0x1f60f','0x1f612','0x1f613','0x1f614','0x1f616','0x1f618','0x1f61a','0x1f61c','0x1f61d','0x1f61e','0x1f620','0x1f621','0x1f622','0x1f623','0x1f624','0x1f625','0x1f628','0x1f629','0x1f62a','0x1f62b','0x1f62d','0x1f630','0x1f631','0x1f632','0x1f633','0x1f635','0x1f637','0x1f638','0x1f639','0x1f63a','0x1f63b','0x1f63c','0x1f63d','0x1f63e','0x1f63f','0x1f640','0x1f645','0x1f646','0x1f647','0x1f648','0x1f649','0x1f64a','0x1f64b','0x1f64c','0x1f64d','0x1f64e','0x1f64f'];
-
-    var string = '';
-    for (var i = 0; i < emoji.length; i++) {
-      string += '<span onClick="insertEmoji(\''+emoji[i]+'\')" class="emoji">' + fixedFromCharCode(emoji[i]) + '</span> '
-    };
-
-    return string;
-  }
-
-  function insertEmoji(code) {
-    insertText(fixedFromCharCode(code));
-  }
+  
 
   function formatTime(ms) {
     return new Date(ms).toTimeString().replace(/.*(\d{2}:\d{2}):\d{2}.*/, "$1");
@@ -204,42 +180,6 @@ $(function() {
     var index = number % colors.length;
 
     return colors[index];
-  }
-
-  // see -> http://stackoverflow.com/questions/1064089/inserting-a-text-where-cursor-is-using-javascript-jquery
-  function insertText(text) {
-    var input = document.getElementById('m');
-    if (input == undefined) { return; }
-    var scrollPos = input.scrollTop;
-    var pos = 0;
-    var browser = ((input.selectionStart || input.selectionStart == "0") ? 
-      "ff" : (document.selection ? "ie" : false ) );
-    if (browser == "ie") { 
-      input.focus();
-      var range = document.selection.createRange();
-      range.moveStart ("character", -input.value.length);
-      pos = range.text.length;
-    }
-    else if (browser == "ff") { pos = input.selectionStart };
-
-    var front = (input.value).substring(0, pos);  
-    var back = (input.value).substring(pos, input.value.length); 
-    input.value = front+text+back;
-    pos = pos + text.length;
-    if (browser == "ie") { 
-      input.focus();
-      var range = document.selection.createRange();
-      range.moveStart ("character", -input.value.length);
-      range.moveStart ("character", pos);
-      range.moveEnd ("character", 0);
-      range.select();
-    }
-    else if (browser == "ff") {
-      input.selectionStart = pos;
-      input.selectionEnd = pos;
-      input.focus();
-    }
-    input.scrollTop = scrollPos;
   }
 
   // Keyboard events
@@ -278,3 +218,64 @@ $(function() {
   }
 
 });
+
+// see -> http://stackoverflow.com/a/10615607/2199226
+  function fixedFromCharCode (codePt) {
+      if (codePt > 0xFFFF) {
+          codePt -= 0x10000;
+          return String.fromCharCode(0xD800 + (codePt >> 10), 0xDC00 + (codePt & 0x3FF));
+      }
+      else {
+          return String.fromCharCode(codePt);
+      }
+  }
+
+  function getEmoji() {
+    var emoji = ['0x1f600','0x1f601','0x1f602','0x1f603','0x1f604','0x1f605','0x1f606','0x1f607','0x1f609','0x1f60a','0x1f60b','0x1f60c','0x1f60d','0x1f60f','0x1f612','0x1f613','0x1f614','0x1f616','0x1f618','0x1f61a','0x1f61c','0x1f61d','0x1f61e','0x1f620','0x1f621','0x1f622','0x1f623','0x1f624','0x1f625','0x1f628','0x1f629','0x1f62a','0x1f62b','0x1f62d','0x1f630','0x1f631','0x1f632','0x1f633','0x1f635','0x1f637','0x1f638','0x1f639','0x1f63a','0x1f63b','0x1f63c','0x1f63d','0x1f63e','0x1f63f','0x1f640','0x1f645','0x1f646','0x1f647','0x1f648','0x1f649','0x1f64a','0x1f64b','0x1f64c','0x1f64d','0x1f64e','0x1f64f'];
+
+    var string = '';
+    for (var i = 0; i < emoji.length; i++) {
+      string += '<span onClick="insertEmoji(\''+emoji[i]+'\')" class="emoji">' + fixedFromCharCode(emoji[i]) + '</span> '
+    };
+
+    return string;
+  }
+
+  function insertEmoji(code) {
+    insertText(fixedFromCharCode(code));
+  }
+// see -> http://stackoverflow.com/questions/1064089/inserting-a-text-where-cursor-is-using-javascript-jquery
+  function insertText(text) {
+    var input = document.getElementById('m');
+    if (input == undefined) { return; }
+    var scrollPos = input.scrollTop;
+    var pos = 0;
+    var browser = ((input.selectionStart || input.selectionStart == "0") ? 
+      "ff" : (document.selection ? "ie" : false ) );
+    if (browser == "ie") { 
+      input.focus();
+      var range = document.selection.createRange();
+      range.moveStart ("character", -input.value.length);
+      pos = range.text.length;
+    }
+    else if (browser == "ff") { pos = input.selectionStart };
+
+    var front = (input.value).substring(0, pos);  
+    var back = (input.value).substring(pos, input.value.length); 
+    input.value = front+text+back;
+    pos = pos + text.length;
+    if (browser == "ie") { 
+      input.focus();
+      var range = document.selection.createRange();
+      range.moveStart ("character", -input.value.length);
+      range.moveStart ("character", pos);
+      range.moveEnd ("character", 0);
+      range.select();
+    }
+    else if (browser == "ff") {
+      input.selectionStart = pos;
+      input.selectionEnd = pos;
+      input.focus();
+    }
+    input.scrollTop = scrollPos;
+  }
