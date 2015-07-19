@@ -113,14 +113,14 @@ io.on('connection', function(socket){
   socket.on('typing', function (room) {
     room = getRoomByName(room);
     if(room !== null && ~room.sockets.indexOf(socket)) {
-      io.to(room.name_lc).emit('typing', room.name_lc, socket.name);
+      io.to(room.name_lc).emit('typing', room.name_lc, socket.name.toLowerCase());
     }
   });
 
   socket.on('stop typing', function (room) {
     room = getRoomByName(room);
     if(room !== null && ~room.sockets.indexOf(socket)) {
-      io.to(room.name_lc).emit('stop typing', room.name_lc, socket.name);
+      io.to(room.name_lc).emit('stop typing', room.name_lc, socket.name.toLowerCase());
     }
   });
 });
@@ -130,9 +130,11 @@ http.listen(3000, function(){
 });
 
 function getSocketByName(name) {
+  if(!name) return null;
   return sockets[name.toLowerCase()] || null;
 }
 
 function getRoomByName(name) {
+  if(!name) return null;
   return rooms[name.toLowerCase()] || null;
 }

@@ -1,6 +1,8 @@
 # chat
 multi room chat based on socket.io 1.3.x
 
+![alt text](screenshots/screen1.png "Main chat window")
+
 # Features
 * Multi room support - each user may be in multiple rooms simultaneously
 * Userlist
@@ -15,11 +17,17 @@ However, it already incorporates sanitization of user input that is often neglec
 
 # Installation
     npm install
+    bower install
   
 # Run
     npm .
     Open browser at http://localhost:3000
     
 # Chat commands
-    /set name NAME    - sets the user name
+    /name NAME        - sets the user name
     /w NAME MESSAGE   - sends a private message to the named user
+
+# Next steps
+* Mobile layout / responsive
+* Replace javascript promts and alerts
+* Display of users in private conversations (at the moment you cannot see if a user is online or even exists)

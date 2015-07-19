@@ -1,0 +1,76 @@
+/*
+ * Copyright (c) 2015 by nolastan (http://codepen.io/nolastan/pen/rCklz)
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+.quote {
+  display: inline-block;
+}
+.quote p {
+  font-weight: 500;
+}
+.quote p .time-ago {
+  font-size: 90%;
+  color: #818d98;
+}
+.quote blockquote {
+  color: #576776;
+  margin: 0;
+}
+.quote .round-avatar {
+  border-radius: 50%;
+  border: 1px solid #E0E8ED;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  float: left;
+  margin-right: 0.5em;
+}
+.quote .speech-bubble {
+  float: left;
+  max-width: 90%;
+}
+.quote .speech-bubble.left {
+  border: 1px solid #E0E8ED;
+  border-radius: 6px;
+  position: relative;
+  margin-left: 9px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  margin-right: 4px;
+  margin-bottom: 4px;
+  padding: 1ex 1em;
+  background: #FDFDFE;
+}
+.quote .speech-bubble.left:after, .quote .speech-bubble.left:before {
+  content: "";
+  display: block;
+  position: absolute;
+}
+.quote .speech-bubble.left:after {
+  top: 16px;
+}
+.quote .speech-bubble.left:before {
+  top: 14px;
+}
+.quote .speech-bubble.left:after {
+  border: 8px solid transparent;
+  border-right: 8px solid #FDFDFE;
+  left: -8px;
+  border-left: none;
+}
+.quote .speech-bubble.left:before {
+  border: 10px solid transparent;
+  border-right: 10px solid #E0E8ED;
+  left: -10px;
+  border-left: none;
+}
+.quote .speech-bubble p {
+  line-height: 1.3em;
+  margin: 0;
+}
+.main-content > div > ul {
+  width: 100%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  list-style-type: none;
+  margin: 0;
+}
